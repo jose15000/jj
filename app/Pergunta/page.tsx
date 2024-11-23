@@ -21,14 +21,14 @@ export default function Proposal() {
   }, [showConfetti]);
 
   const handleNoClick = () => {
-    if (noButtonRef.current) {
-      const buttonRect = noButtonRef.current.getBoundingClientRect();
-      const maxX = window.innerWidth - buttonRect.width;
-      const maxY = window.innerHeight - buttonRect.height;
-      const newX = Math.random() * maxX;
-      const newY = Math.random() * maxY;
-      setNoButtonPosition({ x: newX, y: newY });
-    }
+    // Define pequenos deslocamentos para o botão "Não"
+    const moveDistance = 20; // Distância que o botão vai se mover
+    const newX =
+      noButtonPosition.x + (Math.random() > 0.5 ? moveDistance : -moveDistance);
+    const newY =
+      noButtonPosition.y + (Math.random() > 0.5 ? moveDistance : -moveDistance);
+
+    setNoButtonPosition({ x: newX, y: newY });
   };
 
   const handleYesClick = () => {
@@ -42,7 +42,7 @@ export default function Proposal() {
         <h1 className="text-3xl md:text-4xl font-bold text-purple-600 mb-8 text-center">
           Quer namorar comigo?
         </h1>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex gap-4">
           <Button
             onClick={handleYesClick}
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
@@ -52,10 +52,10 @@ export default function Proposal() {
           <Button
             ref={noButtonRef}
             onClick={handleNoClick}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded absolute"
+            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
             style={{
               transform: `translate(${noButtonPosition.x}px, ${noButtonPosition.y}px)`,
-              transition: "all 0.2s ease-in-out",
+              transition: "transform 0.2s ease-in-out",
             }}
           >
             Não

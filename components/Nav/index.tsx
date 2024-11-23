@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Heart } from "lucide-react";
 
 export function Nav() {
   return (
@@ -9,8 +8,7 @@ export function Nav() {
           href="/"
           className="flex items-center space-x-2 text-purple-600 hover:text-blue-700"
         >
-          <Heart className="h-6 w-6" />
-          <span className="font-semibold text-lg">JJ</span>
+          <span className="font-semibold text-lg">JJ 🖤</span>
         </Link>
         <ul className="flex space-x-4">
           <li>
