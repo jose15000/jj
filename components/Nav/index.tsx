@@ -27,7 +27,18 @@ export function Nav() {
             </Link>
           </li>
           <li>
-            <Link href="/music" className="text-blue-600 hover:text-purple-700">
+            <Link
+              href="/Elogios"
+              className="text-blue-600 hover:text-purple-700"
+            >
+              Elogios
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/Musicas"
+              className="text-blue-600 hover:text-purple-700"
+            >
               Nossas músicas
             </Link>
           </li>
